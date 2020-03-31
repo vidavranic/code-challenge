@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Code test</title>
+</head>
+<body>
+<div>
+    <form>
+        <div>
+            <label for="email">Username</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="button" id="submit_button">Login</button>
+    </form>
+    <div id="error_message" style="color: red"></div>
+</div>
+</body>
+<script src="index.js"></script>
+<script>
+    const mail = document.getElementById("email");
+    const pass = document.getElementById("password");
+    let mail_ok = false;
+    let pass_ok = false;
+    const butt = document.getElementById("submit_button");
+    butt.disabled = true;
+
+    mail.addEventListener('blur', function () {
+        const email_reg = mail.value.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
+        if(email_reg !== null) {
+            mail.style.background = 'transparent';
+            mail_ok = true;
+            pass_ok ? butt.disabled = false : butt.disabled = true;
+        } else {
+            mail.style.background = 'red';
+            mail_ok = false;
+            butt.disabled = true;
+        }
+    });
+    pass.addEventListener('blur', function () {
+        const pass_reg = pass.value.match(/^(?=.*\d).{6,}$/);
+        if(pass_reg !== null) {
+            pass.style.background = 'transparent';
+            pass_ok = true;
+            mail_ok ? butt.disabled = false : butt.disabled = true;
+        } else {
+            pass.style.background = 'red';
+            pass_ok = false;
+            butt.disabled = true;
+        }
+    })
+</script>
+</html>
