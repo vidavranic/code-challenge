@@ -10,7 +10,7 @@ npm start
 
 npm test 
 
-##Test
+## Test
 
 Ako je sve prošlo dobro:
 ```
