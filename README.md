@@ -29,7 +29,8 @@ Testira se endpoint encoder s praznim stringom, tri različita stringa (iz polja
 
 Test.js prvo napravi poziv na **/login**, a onda s tim tokenom testira **/encoder**.
 
-##Aplikacija
+## Aplikacija
+
 Backend je u node.js. 
 
 Frontend je čisti javascript i html (s minimalno css-a), neovisan o node.js i bez dependance-ija. 
